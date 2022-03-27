@@ -1,5 +1,6 @@
-const get_ = require('../get_');
 
-module.exports = app => {
-    app.get('/',get_.bienvenida)
+module.exports = (app) => {
+    app.get('/api',(req,res) => {
+        res.status(200).send('Cantilever... desde método GET');
+    })
 }
