@@ -13,30 +13,48 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { useState } from 'react'
+import { useState } from 'react';
+import ima from '../images/problemas-hotel.jpg';
+import md5 from 'md5';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright(props) {
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://mui.com/">
+//         Your Website
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const theme = createTheme();
 
 export default function SignInSide() {
   const[user,setUser] = useState('');
   const[pass,setPass] = useState('');
-
+  /*
+  const[userSend,setUserSend] = useState('');
+  const[passSend,setPassSend] = useState('');  
+  //url(https://source.unsplash.com/random)
+  */
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();      
     
+    // setUserSend(user);
+    // setPassSend(md5(pass));
+
+    // console.log(userSend);
+    // console.log(passSend);
+    const requestOptions = {
+      method: 'POST'      
+    };
+    fetch(`http://localhost:9000/user/create/userName/${user}/password/${pass}`,requestOptions)
+      .then(res => res.json())
+      .then(data => this.setState({ postId: data.id }));;  
+
     
   };
 
@@ -50,7 +68,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: {ima},
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -110,20 +128,7 @@ export default function SignInSide() {
                 sx={{ mt: 3, mb: 2 }}
               >
                 Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
+              </Button>              
             </Box>
           </Box>
         </Grid>
