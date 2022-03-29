@@ -35,27 +35,18 @@ const theme = createTheme();
 export default function SignInSide() {
   const[user,setUser] = useState('');
   const[pass,setPass] = useState('');
-  /*
-  const[userSend,setUserSend] = useState('');
-  const[passSend,setPassSend] = useState('');  
+   
   //url(https://source.unsplash.com/random)
-  */
+  
   const handleSubmit = (e) => {
     e.preventDefault();      
     
-    // setUserSend(user);
-    // setPassSend(md5(pass));
-
-    // console.log(userSend);
-    // console.log(passSend);
     const requestOptions = {
       method: 'POST'      
     };
     fetch(`http://localhost:9000/user/create/userName/${user}/password/${pass}`,requestOptions)
       .then(res => res.json())
-      .then(data => this.setState({ postId: data.id }));;  
-
-    
+      .then(data => this.setState({ postId: data.id }));    
   };
 
   return (

@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const usuario = require('../models').Usuario;
+const usuario = require('../models').client;
 
 module.exports = {
     createUsuario(req,res){
