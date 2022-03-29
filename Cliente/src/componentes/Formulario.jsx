@@ -1,9 +1,13 @@
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+
+import imagen from '../images/problemas-hotel.jpg'
+
 const Formulario = (props) => {
   return (
-    <input
-      type="text"
-      placeholder={props.message}
-    />
+    <Grid>
+      <imagen backgorund={imagen  }/>       
+    </Grid>
   )
 }
 

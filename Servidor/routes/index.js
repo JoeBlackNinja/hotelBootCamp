@@ -6,7 +6,7 @@ module.exports = (app) => {
     })
 
     app.post('/user/create/userName/:userName/password/:password',
-        LoginController.create);
+        LoginController.createUsuario);
     
     app.get('/user/list', LoginController.list);
 
