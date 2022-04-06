@@ -1,25 +1,23 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('rooms', {
+    await queryInterface.createTable('type_rooms', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_type_room_fk: {
-        type: Sequelize.NUMERIC
-      },
-      floor: {
+      type: {
         type: Sequelize.STRING
       },
-      available: {
-        type: Sequelize.BOOLEAN
-      },      
+      price: {
+        type: Sequelize.NUMERIC
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('rooms');
+    await queryInterface.dropTable('type_rooms');
   }
 };

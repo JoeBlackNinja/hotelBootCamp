@@ -8,6 +8,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      email: {
+        type: Sequelize.STRING
+      },
+      pass: {
+        type: Sequelize.STRING
+      },
       name: {
         type: Sequelize.STRING
       },
@@ -28,13 +34,11 @@ module.exports = {
       },
       cellphone: {
         type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
+      },     
       account_type: {
         type: Sequelize.BOOLEAN
-      },      
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {

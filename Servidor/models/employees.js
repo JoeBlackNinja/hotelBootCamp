@@ -15,13 +15,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   employees.init({
     name: DataTypes.STRING,
+    pass: DataTypes.STRING,
     last_name: DataTypes.STRING,
     area: DataTypes.STRING,
     ingres_date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'employees',
-    timestamps:false,
+    timestamps : false
   });
   return employees;
 };

@@ -37,7 +37,8 @@ module.exports = {
       },
       comments: {
         type: Sequelize.STRING
-      },      
+      },
+     
     });
   },
   async down(queryInterface, Sequelize) {

@@ -1,10 +1,11 @@
-import Formulario from "./componentes/Formulario";
+import FormularioReservacion from "./componentes/FormularioReservacion";
 import SignInSide from "./componentes/SignInSide";
 
 function App() {
   return (
-    // <SignInSide/> 
-    <Formulario/>   
+    <div>
+      <FormularioReservacion/>
+    </div>
   );
 }
 

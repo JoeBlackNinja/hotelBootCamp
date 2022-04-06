@@ -23,8 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'currency_transaction',
-    timestamps: false,
+    timestamps : false
   });
   return currency_transaction;
-  
 };

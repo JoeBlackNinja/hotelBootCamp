@@ -3,9 +3,11 @@ const CreateClient = require('../controller/CreateClient');
 const CreateReservation = require('../controller/CreateReservation');
 
 module.exports = (app) => {
+    
     app.get('/api',(req,res) => {
         res.status(200).send('Mensaje enviado desde método GET');
     })
+
     //NUEVO CLIENTE
     app.post('/client/newClient/name/:name/last_name/:last_name/address/:address/city/:city'+
                 '/state/:state/country/:country/cellphone/:cellphone/email/:email'+

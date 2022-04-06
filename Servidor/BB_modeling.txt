@@ -1,0 +1,46 @@
+employees:
+	Se usa para registro con la informacion personal
+	de los empleados.
+
+type room:
+	Se usa para los tipos de habitaciones
+
+rooms:
+	Se usa para conocer si esta disponible la habitacion.
+
+reservations:
+	Se usa para el requerimiento de reservacion online.
+	Aqui se apunta toda la info y se trae de las otras tablas.
+
+services:
+	Se usa para administrar todos los servicios que proporciona
+	el hotel.
+
+charges:
+	Se usa para administrar todos los cargos que se aplican al 
+	usuario durante su estancia. No esta definido ninguno se llena
+	en tiempo real por parte del personal del hotel.
+
+client:
+	Se usa para administrar la info del cliente.
+
+survey:
+	Se usa para administrar las entrevistas realizadas al cliente	
+
+bills:
+	Se usa para administrar la factura final del cliente con cargos,
+	servicios extra, metodo de pago, etc.
+
+currency transaction:
+	Se usa para administrar las conversiones entre monedas.	
+
+services performed:
+	
+changes room:
+	Cuando el cliente solicita un cambio de habitacion.	
+
+amomalies:
+	Cuando el cliente detecta una anpmalia en la habitacion.
+
+
+

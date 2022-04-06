@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   rooms.init({
-    id_type_room_fk: DataTypes.NUMERIC,
+    id_type_room_fk: DataTypes.INTEGER,
     floor: DataTypes.STRING,
     available: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'rooms',
-    timestamps: false,
+    timestamps : false
   });
   return rooms;
 };

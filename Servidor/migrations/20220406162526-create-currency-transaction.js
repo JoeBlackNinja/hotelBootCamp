@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('services_performeds', {
+    await queryInterface.createTable('currency_transactions', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,21 +11,25 @@ module.exports = {
       id_client_fk: {
         type: Sequelize.INTEGER
       },
-      id_services_fk: {
-        type: Sequelize.INTEGER
-      },
       date: {
         type: Sequelize.DATE
       },
-      time: {
-        type: Sequelize.TIME
-      },
-      sign_client: {
+      currency: {
         type: Sequelize.STRING
-      },     
+      },
+      c_ammount: {
+        type: Sequelize.NUMERIC
+      },
+      exchange_parity_mxn: {
+        type: Sequelize.NUMERIC
+      },
+      ammount_mxn: {
+        type: Sequelize.NUMERIC
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('services_performeds');
+    await queryInterface.dropTable('currency_transactions');
   }
 };

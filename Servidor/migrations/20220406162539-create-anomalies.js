@@ -1,22 +1,29 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('type_rooms', {
+    await queryInterface.createTable('anomalies', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      type: {
+      area: {
         type: Sequelize.STRING
       },
-      price: {
-        type: Sequelize.NUMERIC
-      },      
+      date: {
+        type: Sequelize.DATE
+      },
+      time: {
+        type: Sequelize.TIME
+      },
+      description: {
+        type: Sequelize.STRING
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('type_rooms');
+    await queryInterface.dropTable('anomalies');
   }
 };

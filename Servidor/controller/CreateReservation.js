@@ -1,4 +1,4 @@
-const reservation = require('./models').reservation;
+const reservation = require('../models').reservation;
 
 module.exports = {
     newReservations(){

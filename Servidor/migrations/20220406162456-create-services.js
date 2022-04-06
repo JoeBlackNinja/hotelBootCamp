@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('anomalies', {
+    await queryInterface.createTable('services', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,18 +11,16 @@ module.exports = {
       area: {
         type: Sequelize.STRING
       },
-      date: {
-        type: Sequelize.DATE
-      },
-      time: {
-        type: Sequelize.TIME
-      },
       description: {
         type: Sequelize.STRING
-      },      
+      },
+      cost: {
+        type: Sequelize.NUMERIC
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('anomalies');
+    await queryInterface.dropTable('services');
   }
 };

@@ -15,18 +15,19 @@ module.exports = (sequelize, DataTypes) => {
   }
   client.init({
     name: DataTypes.STRING,
+    email: DataTypes.STRING,
+    pass: DataTypes.STRING,
     last_name: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
     country: DataTypes.STRING,
-    cellphone: DataTypes.STRING,
-    email: DataTypes.STRING,
+    cellphone: DataTypes.STRING,    
     account_type: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'client',
-    timestamps: false,
+    timestamps : false
   });
   return client;
 };

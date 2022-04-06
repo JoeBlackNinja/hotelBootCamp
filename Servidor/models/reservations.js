@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   reservations.init({
-    id_type_room_fk: DataTypes.NUMERIC,
+    id_type_room_fk: DataTypes.INTEGER,
     reservation_date: DataTypes.DATE,
     time: DataTypes.TIME,
     ingres_date: DataTypes.DATE,
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'reservations',
-    timestamps: false,
+    timestamps : false
   });
   return reservations;
 };

@@ -15,7 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useState } from 'react';
 import ima from '../images/problemas-hotel.jpg';
-import md5 from 'md5';
+
+const islandPic = new URL("../images/island3.jpg", import.meta.url);
 
 // function Copyright(props) {
 //   return (
@@ -59,7 +60,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: {ima},
+            backgroundImage: {islandPic},
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],

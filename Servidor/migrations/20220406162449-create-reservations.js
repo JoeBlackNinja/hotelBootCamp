@@ -1,34 +1,41 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('currency_transactions', {
+    await queryInterface.createTable('reservations', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id_client_fk: {
+      id_type_room_fk: {
         type: Sequelize.INTEGER
       },
-      date: {
+      reservation_date: {
         type: Sequelize.DATE
       },
-      currency: {
+      time: {
+        type: Sequelize.TIME
+      },
+      ingres_date: {
+        type: Sequelize.DATE
+      },
+      out_date: {
+        type: Sequelize.DATE
+      },
+      cash: {
+        type: Sequelize.NUMERIC
+      },
+      transaction_number: {
         type: Sequelize.STRING
       },
-      c_ammount: {
+      total: {
         type: Sequelize.NUMERIC
       },
-      exchange_parity_mxn: {
-        type: Sequelize.NUMERIC
-      },
-      ammount_mxn: {
-        type: Sequelize.NUMERIC
-      },      
+      
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('currency_transactions');
+    await queryInterface.dropTable('reservations');
   }
 };
