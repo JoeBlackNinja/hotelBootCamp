@@ -2,8 +2,8 @@ const usuario = require('../models').client;
 
 module.exports = {
     createUsuario(req,res){
-        return usuario.create({userName: req.params.userName, 
-            password: req.params.password})
+        return usuario.create({email: req.params.email, 
+            pass: req.params.pass})
             .then(usuario => res.status(200).send(usuario))
             .catch(error => res.status(400));
     },

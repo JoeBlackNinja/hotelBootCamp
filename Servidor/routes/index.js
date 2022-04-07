@@ -18,15 +18,13 @@ module.exports = (app) => {
                 'time/:time/ingress_date/:ingress_date/out_date/:out_date/cash/:cash'+
                 'transaction_number/:transaction_number/total/:total',CreateReservation.newReservations);
 
-
-
-    /* app.post('/user/create/userName/:userName/password/:password',
+    app.post('/user/create/email/:email/pass/:pass',
         LoginController.createUsuario);
     
     app.get('/user/list', LoginController.list);
 
     app.get('/user/finduser/id/:id',
-        LoginController.findUser); */
+        LoginController.findUser);
 
 
 
