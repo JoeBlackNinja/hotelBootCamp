@@ -3,31 +3,35 @@ import { useFormik } from 'formik';
 import *as yup from 'yup';
 import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import { useState } from 'react';
 
 const validationSchema = yup.object ({
-  name : yup.string().required("E-mail is required"),
-  last_name : yup.string().required("Lastname is required"),
-  address : yup.string().required("Address is required"),
-  city : yup.string().required("City is required"),
-  state : yup.string().required("State is required"),
-  country : yup.string().required("Country is required"),
-  cellphone : yup.string().required("Cellphone is required"),
-  /* account_type : yup.string().required(" is required"), */
-
+  email : yup
+    .string()
+    .email()
+    .required("E-mail is required"),
+  pass : yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+    // .matches(
+    //   "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$",
+    //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    // ),
+  passConf : yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required")
+    .oneOf([yup.ref("pass"), null], "Passwords must match")
 });
 
-const FormularioRegistro = () => {  
+const FormularioSignIn = () => {  
 
   const formik = useFormik({
     initialValues : {
-      name : '',
-      last_name : '',
-      address : '',
-      city : '',
-      state : '',
-      country : '',
-      cellphone : '',
-      /* account_type : '' */
+      email : '',
+      pass : '',
+      passConf : ''
     },
     
     validationSchema : validationSchema,
@@ -46,7 +50,7 @@ const FormularioRegistro = () => {
   });
 
   return (
-    <div className='App'>
+    <div /* className='App' */>
       <form onSubmit={formik.handleSubmit}>
         <TextField 
           id='email' 
@@ -59,6 +63,7 @@ const FormularioRegistro = () => {
           helperText={formik.touched.email && formik.errors.email}
         />
         <TextField 
+          type="password"
           id='pass' 
           name='pass' 
           label='Password' 
@@ -69,6 +74,7 @@ const FormularioRegistro = () => {
           helperText={formik.touched.pass && formik.errors.pass}
         /> 
         <TextField 
+          type="password"
           id='passConf' 
           name='passConf' 
           label='Confirm password' 
@@ -84,4 +90,4 @@ const FormularioRegistro = () => {
   )
 }
 
-export default FormularioRegistro;
+export default FormularioSignIn;
