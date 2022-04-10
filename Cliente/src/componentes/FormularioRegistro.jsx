@@ -6,9 +6,23 @@ import { Button } from '@material-ui/core';
 import { useState } from 'react';
 
 const validationSchema = yup.object ({
-  email : yup.string().required("E-mail is required"),
-  pass : yup.string().required("Password is required"),
-  passConf : yup.string().required("Password is required")
+  email : yup
+    .string()
+    .email()
+    .required("E-mail is required"),
+  pass : yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+    // .matches(
+    //   "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$",
+    //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
+    // ),
+  passConf : yup
+    .string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required")
+    .oneOf([yup.ref("pass"), null], "Passwords must match")
 });
 
 const FormularioRegistro = () => {  
@@ -23,11 +37,6 @@ const FormularioRegistro = () => {
     validationSchema : validationSchema,
 
     onSubmit : (values) => {
-
-      if(values.pass !== values.passConf){
-        console.log('Different password');
-        return 
-      }
 
       const requestOptions = {
         method: 'POST'      
@@ -54,6 +63,7 @@ const FormularioRegistro = () => {
           helperText={formik.touched.email && formik.errors.email}
         />
         <TextField 
+          type="password"
           id='pass' 
           name='pass' 
           label='Password' 
@@ -64,6 +74,7 @@ const FormularioRegistro = () => {
           helperText={formik.touched.pass && formik.errors.pass}
         /> 
         <TextField 
+          type="password"
           id='passConf' 
           name='passConf' 
           label='Confirm password' 
