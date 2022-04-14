@@ -26,6 +26,4 @@ module.exports = (app) => {
     app.get('/user/finduser/id/:id',
         LoginController.findUser);
 
-
-
 }
